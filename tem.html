@@ -1,0 +1,439 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Temple ERP Dashboard</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    * {
+      font-family: 'Poppins', sans-serif;
+    }
+
+    body {
+      background: #f3f4f6;
+    }
+
+    .sidebar-scroll::-webkit-scrollbar {
+      width: 4px;
+    }
+
+    .sidebar-scroll::-webkit-scrollbar-thumb {
+      background: #cbd5e1;
+      border-radius: 20px;
+    }
+
+    .card-hover:hover {
+      transform: translateY(-5px);
+      transition: 0.3s ease;
+    }
+
+    .glass {
+      background: rgba(255,255,255,0.75);
+      backdrop-filter: blur(10px);
+    }
+  </style>
+</head>
+<body>
+
+  <script>
+    function toggleSidebar() {
+      const sidebar = document.getElementById('sidebar');
+      sidebar.classList.toggle('-translate-x-full');
+    }
+  </script>
+
+  <div class="flex h-screen overflow-hidden">
+
+    <!-- Sidebar -->
+    <aside id="sidebar" class="w-24 hover:w-72 bg-gradient-to-b from-orange-700 to-orange-900 text-white flex flex-col sidebar-scroll overflow-y-auto fixed lg:relative h-full z-50 transition-all duration-100 group">
+
+      <div class="p-6 border-b border-orange-500">
+        <div class="flex items-center justify-center lg:justify-start gap-3 overflow-hidden">
+          <span class="text-3xl">🛕</span>
+          <div class="hidden group-hover:block transition-all duration-300">
+            <h1 class="text-2xl font-bold whitespace-nowrap">Temple ERP</h1>
+            <p class="text-sm text-orange-100 mt-1 whitespace-nowrap">Management System</p>
+          </div>
+        </div>
+      </div>
+
+      <nav class="flex-1 p-4 space-y-2 text-sm">
+
+        <a href="#" class="flex items-center gap-4 px-4 py-4 rounded-xl bg-orange-500 font-medium overflow-hidden whitespace-nowrap">
+          <span class="text-2xl">📊</span>
+          <span class="hidden group-hover:inline">Dashboard</span>
+        </a>
+
+        <a href="#" class="flex items-center gap-4 px-4 py-4 rounded-xl hover:bg-orange-600 transition overflow-hidden whitespace-nowrap">
+          <span class="text-2xl">👥</span>
+          <span class="hidden group-hover:inline">Devotee Management</span>
+        </a>
+
+        <a href="#" class="flex items-center gap-4 px-4 py-4 rounded-xl hover:bg-orange-600 transition overflow-hidden whitespace-nowrap">
+          <span class="text-2xl">💳</span>
+          <span class="hidden group-hover:inline">Donation Management</span>
+        </a>
+
+        <a href="#" class="flex items-center gap-4 px-4 py-4 rounded-xl hover:bg-orange-600 transition overflow-hidden whitespace-nowrap">
+          <span class="text-2xl">🏛</span>
+          <span class="hidden group-hover:inline">Membership System</span>
+        </a>
+
+        <a href="#" class="flex items-center gap-3 px-4 py-3 rounded-xl hover:bg-orange-600 transition">
+          📅 Hall Booking
+        </a>
+
+        <a href="#" class="flex items-center gap-3 px-4 py-3 rounded-xl hover:bg-orange-600 transition">
+          🍛 Prasad Management
+        </a>
+
+        <a href="#" class="flex items-center gap-3 px-4 py-3 rounded-xl hover:bg-orange-600 transition">
+          📦 Inventory
+        </a>
+
+        <a href="#" class="flex items-center gap-3 px-4 py-3 rounded-xl hover:bg-orange-600 transition">
+          🏠 Property Management
+        </a>
+
+        <a href="#" class="flex items-center gap-3 px-4 py-3 rounded-xl hover:bg-orange-600 transition">
+          👨‍💼 HR & Payroll
+        </a>
+
+        <a href="#" class="flex items-center gap-3 px-4 py-3 rounded-xl hover:bg-orange-600 transition">
+          📚 Accounting
+        </a>
+
+        <a href="#" class="flex items-center gap-3 px-4 py-3 rounded-xl hover:bg-orange-600 transition">
+          📲 WhatsApp Integration
+        </a>
+
+        <a href="#" class="flex items-center gap-3 px-4 py-3 rounded-xl hover:bg-orange-600 transition">
+          ⚙ Settings
+        </a>
+
+      </nav>
+
+      <div class="p-4 border-t border-orange-500">
+        <div class="bg-orange-500 rounded-xl p-4">
+          <h3 class="font-semibold">Temple Admin</h3>
+          <p class="text-xs text-orange-100 mt-1">administrator@temple.com</p>
+        </div>
+      </div>
+
+    </aside>
+
+
+    <!-- Main Content -->
+    <main class="flex-1 overflow-y-auto">
+
+      <!-- Header -->
+      <header class="glass shadow-sm px-8 py-5 flex items-center justify-between sticky top-0 z-40">
+
+        <div>
+          <h2 class="text-2xl font-bold text-gray-800">Dashboard Overview</h2>
+          <p class="text-sm text-gray-500 mt-1">Welcome to Temple ERP Management System</p>
+        </div>
+
+        <div class="flex items-center gap-4">
+
+          <input
+            type="text"
+            placeholder="Search here..."
+            class="px-4 py-2 rounded-xl border border-gray-300 focus:outline-none focus:ring-2 focus:ring-orange-500"
+          />
+
+          <button class="bg-orange-600 hover:bg-orange-700 text-white px-5 py-2 rounded-xl shadow-lg transition">
+            + Add New
+          </button>
+
+        </div>
+
+      </header>
+
+
+      <div class="p-8 space-y-8">
+
+        <!-- Stats -->
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+
+          <div class="bg-white rounded-3xl p-6 shadow-lg card-hover">
+            <div class="flex justify-between items-center">
+              <div>
+                <p class="text-gray-500">Total Devotees</p>
+                <h3 class="text-3xl font-bold mt-2">12,450</h3>
+              </div>
+              <div class="text-5xl">👥</div>
+            </div>
+          </div>
+
+          <div class="bg-white rounded-3xl p-6 shadow-lg card-hover">
+            <div class="flex justify-between items-center">
+              <div>
+                <p class="text-gray-500">Total Donations</p>
+                <h3 class="text-3xl font-bold mt-2">₹ 8.2L</h3>
+              </div>
+              <div class="text-5xl">💰</div>
+            </div>
+          </div>
+
+          <div class="bg-white rounded-3xl p-6 shadow-lg card-hover">
+            <div class="flex justify-between items-center">
+              <div>
+                <p class="text-gray-500">Hall Bookings</p>
+                <h3 class="text-3xl font-bold mt-2">185</h3>
+              </div>
+              <div class="text-5xl">🏛</div>
+            </div>
+          </div>
+
+          <div class="bg-white rounded-3xl p-6 shadow-lg card-hover">
+            <div class="flex justify-between items-center">
+              <div>
+                <p class="text-gray-500">Inventory Items</p>
+                <h3 class="text-3xl font-bold mt-2">2,340</h3>
+              </div>
+              <div class="text-5xl">📦</div>
+            </div>
+          </div>
+
+        </div>
+
+
+        <!-- Quick Actions -->
+        <div>
+          <div class="flex items-center justify-between mb-5">
+            <h3 class="text-2xl font-bold text-gray-800">Quick Actions</h3>
+          </div>
+
+          <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+
+            <button class="bg-gradient-to-r from-orange-500 to-orange-700 text-white p-6 rounded-3xl shadow-lg hover:scale-105 transition text-left">
+              <div class="text-4xl mb-4">👤</div>
+              <h4 class="font-semibold text-xl">Add Devotee</h4>
+              <p class="text-sm mt-2 text-orange-100">Register new devotee details</p>
+            </button>
+
+            <button class="bg-gradient-to-r from-blue-500 to-blue-700 text-white p-6 rounded-3xl shadow-lg hover:scale-105 transition text-left">
+              <div class="text-4xl mb-4">💳</div>
+              <h4 class="font-semibold text-xl">Collect Donation</h4>
+              <p class="text-sm mt-2 text-blue-100">Record temple donation</p>
+            </button>
+
+            <button class="bg-gradient-to-r from-green-500 to-green-700 text-white p-6 rounded-3xl shadow-lg hover:scale-105 transition text-left">
+              <div class="text-4xl mb-4">📅</div>
+              <h4 class="font-semibold text-xl">Book Hall</h4>
+              <p class="text-sm mt-2 text-green-100">Manage event bookings</p>
+            </button>
+
+            <button class="bg-gradient-to-r from-purple-500 to-purple-700 text-white p-6 rounded-3xl shadow-lg hover:scale-105 transition text-left">
+              <div class="text-4xl mb-4">📦</div>
+              <h4 class="font-semibold text-xl">Inventory</h4>
+              <p class="text-sm mt-2 text-purple-100">Check stock and supplies</p>
+            </button>
+
+          </div>
+        </div>
+
+
+        <!-- Tables Section -->
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+
+          <!-- Recent Donations -->
+          <div class="bg-white rounded-3xl shadow-lg overflow-hidden">
+
+            <div class="p-6 border-b">
+              <h3 class="text-xl font-bold text-gray-800">Recent Donations</h3>
+            </div>
+
+            <div class="overflow-x-auto">
+              <table class="w-full text-left">
+                <thead class="bg-gray-100 text-gray-700">
+                  <tr>
+                    <th class="p-4">Donor</th>
+                    <th class="p-4">Amount</th>
+                    <th class="p-4">Status</th>
+                  </tr>
+                </thead>
+                <tbody>
+
+                  <tr class="border-b hover:bg-gray-50">
+                    <td class="p-4">Raj Patel</td>
+                    <td class="p-4">₹ 11,000</td>
+                    <td class="p-4">
+                      <span class="bg-green-100 text-green-700 px-3 py-1 rounded-full text-xs font-medium">
+                        Completed
+                      </span>
+                    </td>
+                  </tr>
+
+                  <tr class="border-b hover:bg-gray-50">
+                    <td class="p-4">Sanjiv Shah</td>
+                    <td class="p-4">₹ 5,100</td>
+                    <td class="p-4">
+                      <span class="bg-yellow-100 text-yellow-700 px-3 py-1 rounded-full text-xs font-medium">
+                        Pending
+                      </span>
+                    </td>
+                  </tr>
+
+                  <tr class="hover:bg-gray-50">
+                    <td class="p-4">Mahesh Joshi</td>
+                    <td class="p-4">₹ 21,000</td>
+                    <td class="p-4">
+                      <span class="bg-green-100 text-green-700 px-3 py-1 rounded-full text-xs font-medium">
+                        Completed
+                      </span>
+                    </td>
+                  </tr>
+
+                </tbody>
+              </table>
+            </div>
+
+          </div>
+
+
+          <!-- Upcoming Events -->
+          <div class="bg-white rounded-3xl shadow-lg overflow-hidden">
+
+            <div class="p-6 border-b">
+              <h3 class="text-xl font-bold text-gray-800">Upcoming Events</h3>
+            </div>
+
+            <div class="p-6 space-y-5">
+
+              <div class="flex items-center justify-between bg-orange-50 p-4 rounded-2xl">
+                <div>
+                  <h4 class="font-semibold">Maha Aarti</h4>
+                  <p class="text-sm text-gray-500 mt-1">Tomorrow - 7:00 PM</p>
+                </div>
+                <span class="bg-orange-600 text-white px-4 py-2 rounded-xl text-sm">
+                  Active
+                </span>
+              </div>
+
+              <div class="flex items-center justify-between bg-blue-50 p-4 rounded-2xl">
+                <div>
+                  <h4 class="font-semibold">Wedding Booking</h4>
+                  <p class="text-sm text-gray-500 mt-1">28 May 2026</p>
+                </div>
+                <span class="bg-blue-600 text-white px-4 py-2 rounded-xl text-sm">
+                  Confirmed
+                </span>
+              </div>
+
+              <div class="flex items-center justify-between bg-green-50 p-4 rounded-2xl">
+                <div>
+                  <h4 class="font-semibold">Mahaprasad</h4>
+                  <p class="text-sm text-gray-500 mt-1">30 May 2026</p>
+                </div>
+                <span class="bg-green-600 text-white px-4 py-2 rounded-xl text-sm">
+                  Scheduled
+                </span>
+              </div>
+
+            </div>
+
+          </div>
+
+        </div>
+
+
+        <!-- Devotee List -->
+        <div class="bg-white rounded-3xl shadow-lg overflow-hidden">
+
+          <div class="flex items-center justify-between p-6 border-b">
+            <h3 class="text-xl font-bold text-gray-800">Devotee Management</h3>
+
+            <button class="bg-orange-600 hover:bg-orange-700 text-white px-5 py-2 rounded-xl transition">
+              Add Devotee
+            </button>
+          </div>
+
+          <div class="overflow-x-auto">
+
+            <table class="w-full text-left">
+
+              <thead class="bg-gray-100 text-gray-700">
+                <tr>
+                  <th class="p-4">Name</th>
+                  <th class="p-4">Mobile</th>
+                  <th class="p-4">Membership</th>
+                  <th class="p-4">Status</th>
+                  <th class="p-4">Actions</th>
+                </tr>
+              </thead>
+
+              <tbody>
+
+                <tr class="border-b hover:bg-gray-50">
+                  <td class="p-4">Jenis Patel</td>
+                  <td class="p-4">+256 726088806</td>
+                  <td class="p-4">Gold Member</td>
+                  <td class="p-4">
+                    <span class="bg-green-100 text-green-700 px-3 py-1 rounded-full text-xs font-medium">
+                      Active
+                    </span>
+                  </td>
+                  <td class="p-4 flex gap-2">
+                    <button class="bg-blue-500 text-white px-3 py-1 rounded-lg text-sm">Edit</button>
+                    <button class="bg-red-500 text-white px-3 py-1 rounded-lg text-sm">Delete</button>
+                  </td>
+                </tr>
+
+                <tr class="border-b hover:bg-gray-50">
+                  <td class="p-4">Jatin Patel</td>
+                  <td class="p-4">+256 000000000</td>
+                  <td class="p-4">Silver Member</td>
+                  <td class="p-4">
+                    <span class="bg-yellow-100 text-yellow-700 px-3 py-1 rounded-full text-xs font-medium">
+                      Renewal Due
+                    </span>
+                  </td>
+                  <td class="p-4 flex gap-2">
+                    <button class="bg-blue-500 text-white px-3 py-1 rounded-lg text-sm">Edit</button>
+                    <button class="bg-red-500 text-white px-3 py-1 rounded-lg text-sm">Delete</button>
+                  </td>
+                </tr>
+
+                <tr class="hover:bg-gray-50">
+                  <td class="p-4">Sanjivbhai</td>
+                  <td class="p-4">+256 000000000</td>
+                  <td class="p-4">Premium Member</td>
+                  <td class="p-4">
+                    <span class="bg-green-100 text-green-700 px-3 py-1 rounded-full text-xs font-medium">
+                      Active
+                    </span>
+                  </td>
+                  <td class="p-4 flex gap-2">
+                    <button class="bg-blue-500 text-white px-3 py-1 rounded-lg text-sm">Edit</button>
+                    <button class="bg-red-500 text-white px-3 py-1 rounded-lg text-sm">Delete</button>
+                  </td>
+                </tr>
+
+              </tbody>
+
+            </table>
+
+          </div>
+
+        </div>
+
+
+        <!-- Footer -->
+        <footer class="text-center py-8 text-gray-500 text-sm">
+          © 2026 Temple ERP Management System. All Rights Reserved.
+        </footer>
+
+      </div>
+
+    </main>
+
+  </div>
+
+</body>
+</html>
